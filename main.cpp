@@ -1,7 +1,9 @@
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include <fstream>
+
 // shortens so I can just use vector, cout, endl, and string instead of std::vector ......
 using std::vector;
 using std::cout;
@@ -24,9 +26,13 @@ void fillWithNumbers(){
     numbers.resize(20);
 }
 
-void aVectorOfVectors_2DVectors(){
+void creating2DVectors(){
     // create a vector of vectors. Essentially a 2d array.
-    vector<vector<int>> myVector(10);
+    int outersize = 10;
+    int innersize = 10;
+    // this allows us to create a 2d vector where the outer vector is of size outersize, and inner vector is of size innersize
+    // so a vector of size outersize, each containing a vector of size innersize
+    vector<vector<int>> myVector(outersize, vector<int> (innersize));
     // for each section of the vector
     for(int i = 0; i < myVector.size(); i++){
         // get the vector stored in this section
@@ -96,10 +102,6 @@ void cDoesntInitialisePrimitives(){
 // if you try to read from outside the array, C++ will just read whatever is next in memory
 int main() {
     helloWorld();
-    aVectorOfVectors_2DVectors();
-    playingWithStrings();
-    characters();
-    files();
 }
 
 
