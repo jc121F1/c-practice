@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 // shortens so I can just use vector, cout, endl, and string instead of std::vector ......
 using std::vector;
 using std::cout;
 using std::endl;
 using std::string;
+using std::ofstream;
 
 void helloWorld(){
     std::cout << "Hello World!\n";
@@ -49,10 +51,39 @@ void playingWithStrings(){
     cout << c << endl;
 }
 
+void characters(){
+    // characters can also be used
+    // characters can be the letter, or ASCII code when you use ' rather than ".
+    char c1 = 'A';
+    char c2 = '65';
+
+    cout << c1 << "\n";
+    cout << c2 << "\n";
+    // cout will convert booleans to output 1 if true and 0 if false
+    cout << (c1 == c2) << "\n";
+}
+
+void files() {
+    // this will create a file called filename.txt
+    // and then write "hello disk" to it
+    // note we feed writer text in the same way we feed cout text.
+    ofstream writer("filename.txt");
+    writer << "Hello disk\n";
+}
+
+void cDoesntInitialisePrimitives(){
+    int x;
+    if (x > 1000000){
+        // this could evaluate to true or false because x hasn't been initialised yet
+    }
+}
+
 int main() {
     helloWorld();
     aVectorOfVectors_2DVectors();
     playingWithStrings();
+    characters();
+    files();
 }
 
 
