@@ -78,6 +78,8 @@ void cDoesntInitialisePrimitives(){
     }
 }
 
+// theres no ArrayIndexOutOfBounds exception
+// if you try to read from outside the array, C++ will just read whatever is next in memory
 int main() {
     helloWorld();
     aVectorOfVectors_2DVectors();
