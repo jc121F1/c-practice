@@ -63,6 +63,20 @@ void characters(){
     cout << (c1 == c2) << "\n";
 }
 
+void iterateThroughAVector(){
+    vector<vector<int>> outerVector(10);
+    // for each section of the vector
+    for(int outer = 0; outer < outerVector.size(); outer++){
+        // get the vector stored in this section
+        vector<int> innerVector = outerVector[outer];
+        for(int inner = 0; inner < innerVector.size(); inner++){
+            // print it out to the console
+            cout << outerVector[outer][inner] << "";
+        }
+        cout << endl;
+    }
+}
+
 void files() {
     // this will create a file called filename.txt
     // and then write "hello disk" to it
