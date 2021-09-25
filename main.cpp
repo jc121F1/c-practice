@@ -168,6 +168,47 @@ void youCanCompareStrings(){
     }
 }
 
+class Student{
+protected:
+    vector<double> marks;
+    string studentName;
+    int studentId;
+public:
+    Student(string studentNameIn, int studentIdIn)
+    : studentName(studentNameIn), studentId(studentIdIn),marks(10){
+    }
+    void setMark(int assignment, double mark){
+        marks[assignment] = mark;
+    }
+    double getMark(int assignment) const {
+        return marks[assignment];
+    }
+    double sumMarks() const{
+        double sum = 0;
+        for(int i = 0; i < marks.size(); i++){
+            sum += marks[i];
+        }
+        return sum;
+    }
+
+    const int & getStudentId() const {
+        return studentId;
+    }
+
+    const string & getStudentName(){
+        return studentName;
+    }
+
+    bool operator==(const Student & other) const{
+        return (studentId == other.getStudentId());
+    }
+
+    bool operator>(const Student & other) const{
+        return (sumMarks() > other.sumMarks());
+    }
+
+};
+
 // theres no ArrayIndexOutOfBounds exception
 // if you try to read from outside the array, C++ will just read whatever is next in memory
 int main() {
