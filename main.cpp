@@ -98,10 +98,81 @@ void cDoesntInitialisePrimitives(){
     }
 }
 
+class Coordinate{
+    protected:
+        int x;
+        int y;
+
+public:
+    Coordinate(int xIn, int yIn)
+    // both colon initialisation of variables, and initialisation within the executable code is valid.
+    : x(xIn), y(yIn){
+        x = xIn;
+        y = yIn;
+
+
+    }
+    int getX(){
+        return x;
+    }
+    int getY(){
+        return y;
+    }
+    int setX(int xIn){
+        x = xIn;
+    }
+    int setY(int yIn){
+        y = yIn;
+    }
+};
+
+void coordinateClassExample(){
+
+    // create a coordinate a and then set b to be a copy of coordinate a
+    // rather than referencing the original object, C++ will make a copy
+    Coordinate a(4, -3);
+    Coordinate b = a;
+
+    cout << a.getX() << endl; // 4
+    cout << b.getX() << endl; // 4
+
+    // so now if we change the X value of coordinate A
+    a.setX(8);
+
+    // we see that A changes but B doesn't
+    cout << a.getX() << endl; // 8
+    cout << b.getX() << endl; // 4
+}
+
+void creatingAVectorOfObjects(){
+    // in C++ you cannot create a vector of objects if that object does not have a default constructor with no arguments
+    // so the line "vector<Coordinate> coordinates" will not compile.
+    // to get around this, we can do the following
+
+    // create a vector of size 0(empty)
+    vector<Coordinate> coords;
+    // then add an extra space to the vector, and fill it with the specified coordinated.
+    coords.push_back(Coordinate(4,-2));
+    coords.push_back(Coordinate(3,17));
+}
+
+void youCanCompareStrings(){
+    string a = "Dave";
+    string b = "Dave";
+
+    // because variables store the object, rather than a reference to the object, you are able to compare strings
+    // this doesn't work for all objects. We need to create an equality method in any bespoke objects to support this functionality.
+    // We can also implement greater than and less than operators.
+    if (a == b){
+        cout << "Dave is Dave\n";
+    }
+}
+
 // theres no ArrayIndexOutOfBounds exception
 // if you try to read from outside the array, C++ will just read whatever is next in memory
 int main() {
     helloWorld();
+    coordinateClassExample();
 }
 
 
